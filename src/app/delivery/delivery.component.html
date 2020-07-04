@@ -1,0 +1,195 @@
+<div class="delivary-container">
+   <div>
+    <button  mat-raised-button class="reset-button" (click)="reset()">Reset &#10006;</button>
+
+    <div *ngIf="error" class="error-message">Please fix all the errors.</div>
+    <mat-card>
+        <form [formGroup]="deliveryForm" >
+        <mat-card-title>Billing Address</mat-card-title>
+        <mat-card-content>
+            <div class="name-container">
+                <mat-form-field class="samll-field">
+                    <mat-label>First name *</mat-label>
+                    <input matInput  formControlName="firstName" >
+                    <mat-error *ngIf=" f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="samll-field">
+                    <mat-label>Last name *</mat-label>
+                    <input matInput formControlName="lastName">
+                    <mat-error  *ngIf=" f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">last Name is required</div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Address Line 1 *</mat-label>
+                <input matInput formControlName="addressOne">
+                <mat-error  *ngIf=" f.addressOne.invalid && (f.addressOne.dirty || f.addressOne.touched)" class="invalid-feedback">
+                    <div *ngIf="f.addressOne.errors.required">Address is required</div>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Address Line 2 *</mat-label>
+                <input matInput formControlName="addressSecond">
+                <mat-error  *ngIf="f.addressSecond.invalid && (f.addressSecond.dirty || f.addressSecond.touched)" class="invalid-feedback">
+                    <div *ngIf="f.addressSecond.errors.required">Address is required</div>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="full-address-container">
+                <mat-form-field class="samll-field">
+                    <mat-label>City/District *</mat-label>
+                    <input matInput formControlName="city">
+                    <mat-error  *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required">City is required</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="samll-field">
+                    <mat-label>Province /Status *</mat-label>
+                    <input matInput formControlName="status">
+                    <mat-error  *ngIf="f.status.invalid && (f.status.dirty || f.status.touched)" class="invalid-feedback">
+                        <div *ngIf="f.status.errors.required">Status is required</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="samll-field">
+                    <mat-label>Country *</mat-label>
+                    <input matInput formControlName="country">
+                    <mat-error  *ngIf="f.country.invalid && (f.country.dirty || f.country.touched)" class="invalid-feedback">
+                        <div *ngIf="f.country.errors.required">Country is required</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="samll-field">
+                    <mat-label>Postal Code *</mat-label>
+                    <input matInput formControlName="postalCode">
+                    <mat-error  *ngIf=" f.postalCode.invalid && (f.postalCode.dirty || f.postalCode.touched)" class="invalid-feedback">
+                        <div *ngIf="f.postalCode.errors.required">postalCode is required</div>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+    </form>
+
+    </mat-card>
+
+    <mat-checkbox class="example-margin" [(ngModel)]="sameAddress" (change)="resetShippingForm()">My shipping address is same as my billing address.</mat-checkbox>
+    <mat-card *ngIf="!sameAddress">
+        <mat-card-title>Shipping Address
+        </mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="shippingForm">
+                <div class="name-container">
+                    <mat-form-field class="samll-field">
+                        <mat-label>First name *</mat-label>
+                        <input matInput formControlName="firstName2">
+                        <mat-error  *ngIf=" sh.firstName2.invalid && (sh.firstName2.dirty||sh.firstName2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.firstName2.errors.required">First Name is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="samll-field">
+                        <mat-label>Last name *</mat-label>
+                        <input matInput formControlName="lastName2">
+                        <mat-error  *ngIf=" sh.lastName2.invalid && (sh.lastName2.dirty || sh.lastName2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.lastName2.errors.required">Last Name is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address Line 1</mat-label>
+                    <input matInput formControlName="addressOne2">
+                    <mat-error  *ngIf=" sh.addressOne2.invalid && (sh.addressOne2.touched || sh.addressOne2.dirty)" class="invalid-feedback">
+                        <div *ngIf="sh.addressOne2.errors.required">Address is required</div>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address Line 2 *</mat-label>
+                    <input matInput formControlName="addressSecond2">
+                    <mat-error  *ngIf="sh.addressSecond2.invalid && (sh.addressSecond2.dirty || sh.addressSecond2.touched)" class="invalid-feedback">
+                        <div *ngIf="sh.addressSecond2.errors.required">Address is required</div>
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="full-address-container">
+                    <mat-form-field class="samll-field">
+                        <mat-label>City/District *</mat-label>
+                        <input matInput formControlName="city2">
+                        <mat-error  *ngIf="sh.city2.invalid && (sh.city2.dirty || sh.city2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.city2.errors.required">City is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="samll-field">
+                        <mat-label>Province /Status *</mat-label>
+                        <input matInput formControlName="status2">
+                        <mat-error  *ngIf="sh.status2.invalid && (sh.status2.dirty || sh.status2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.status2.errors.required">Status is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="samll-field">
+                        <mat-label>Country *</mat-label>
+                        <input matInput formControlName="country2">
+                        <mat-error  *ngIf="sh.country2.invalid && (sh.country2.dirty || sh.country2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.country2.errors.required">Country is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field  class="samll-field">
+                        <mat-label>Postal Code *</mat-label>
+                        <input matInput formControlName="postalCode2">
+                        <mat-error  *ngIf="sh.postalCode2.invalid && (sh.postalCode2.dirty || sh.postalCode2.touched)" class="invalid-feedback">
+                            <div *ngIf="sh.postalCode2.errors.required">postalCode is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+    <mat-radio-group [(ngModel)]="newAccount" (change)="resetPassword()">
+        <mat-radio-button class="example-margin" value="new">Create Account
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="old">Checkout as a Guest</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-card>
+        <form [formGroup]="emailForm">
+            <mat-card-title>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email *</mat-label>
+                    <input matInput formControlName="email" >
+                    <mat-error  *ngIf="e.email.invalid && (e.email.dirty || e.email.touched)" class="invalid-feedback">
+                        <div *ngIf="e.email.errors.required">Email is required</div>
+                        <div *ngIf="e.email.errors.email">Invalid format</div>
+                    </mat-error>
+                </mat-form-field>
+            </mat-card-title>
+            <mat-card-content *ngIf="newAccount === 'new'">
+                <div class="password-container">
+                    <mat-form-field class="samll-field">
+                        <mat-label>Password *</mat-label>
+                        <input matInput type="password" formControlName="password" >
+                        <mat-error  *ngIf="e.password.invalid && (e.password.dirty || e.password.touched)" class="invalid-feedback">
+                            <div *ngIf="e.password.errors.required">Password is required</div>
+                            <div *ngIf="e.password.errors.pattern">Invalid format</div>
+                        </mat-error>
+                    </mat-form-field> 
+                    <mat-form-field class="samll-field">
+                        <mat-label>Confirm Password *</mat-label>
+                        <input matInput type="password" formControlName="confirmPassword">
+                        <mat-error  *ngIf=" ( e.confirmPassword.invalid )&& (e.confirmPassword.dirty || e.confirmPassword.touched)" class="invalid-feedback">
+                            <div *ngIf="e.confirmPassword.errors.required">confirmPassword is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <span>Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character (@$!%*#?&)</span>
+            </mat-card-content>
+        </form>
+    </mat-card>
+
+<button mat-raised-button (click)="onSubmit()" class="next-button">Next</button>
+
+   </div>
+      
+</div>

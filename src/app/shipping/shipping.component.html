@@ -1,0 +1,57 @@
+<div class="payment-container">
+    <div class="container">
+
+        <button mat-raised-button (click)="reset()"> Reset &#10006;</button>
+
+        <form [formGroup]="shippingForm">
+            <mat-card>
+                <mat-card-title>
+                    Payment Method
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Card Number *</mat-label>
+                        <input matInput type="text" formControlName="cardNumber">
+                        <mat-error *ngIf=" ship.cardNumber.invalid && (ship.cardNumber.dirty || ship.cardNumber.touched)"
+                            >
+                            <div *ngIf="ship.cardNumber.required">cardNumber is required</div>
+                        </mat-error>
+                    </mat-form-field>
+                    <div>
+                        <mat-form-field class="example-small-width">
+                            <mat-label>ExpireDate *</mat-label>
+                            <input matInput type="date" formControlName="expireDate">
+                            <mat-error *ngIf=" ship.expireDate.invalid && (ship.expireDate.dirty || ship.expireDate.touched)"
+                                >
+                                <div *ngIf="ship.expireDate.errors.required">ExpireDate is required</div>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>cvv *</mat-label>
+                            <input matInput type="text" formControlName="cvv">
+                            <mat-error *ngIf=" ship.cvv.invalid && (ship.cvv.dirty || ship.cvv.touched)"
+                               >
+                                <div *ngIf="ship.cvv.errors.required">CVV is required</div>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </form>
+
+
+
+
+
+
+        <div class="buttons-container">
+
+            <button mat-raised-button class="pervious-button" (click)="changeCurrentTab(0)"> Previous</button>
+            <button mat-raised-button class="pay-button"> Pay</button>
+        </div>
+    </div>
+
+
+
+
+</div>

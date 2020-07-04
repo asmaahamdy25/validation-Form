@@ -1,0 +1,28 @@
+.payment-container{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        .container{
+            width: 50%;
+        }
+
+        mat-card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .example-small-width {
+            margin-inline-end: 10px;
+        }
+        .buttons-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 15px 0px;
+            .pay-button{
+                background-color: #3f51b5;
+                color: white;
+            }
+        }
+    }

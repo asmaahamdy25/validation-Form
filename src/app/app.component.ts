@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'form';
+  activeTab = true;
+  selectedIndex = 0;
+
+  checkActiveTabe(event) {
+    this.activeTab = event
+  }
+
+  changeSelectedTab(event) {
+    this.selectedIndex = event
+  }
 }

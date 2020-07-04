@@ -1,0 +1,49 @@
+.delivary-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        mat-card {
+                margin-bottom: 20px;
+                margin-top: 20px;
+        }
+        .reset-button{
+                margin-bottom: 20px;
+        }
+        .mat-card-title{
+                font-size: 20px;
+        }
+     .example-full-width{
+        display: block;
+       }
+      
+        mat-radio-button {
+                margin-inline-end: 20px;
+        }
+
+        .password-container{
+                display: flex;
+                flex-direction: row;
+        }
+
+        .next-button{
+                margin-left: 90%;
+                background-color: #3f51b5;
+                color: white;
+        }
+        .samll-field {
+                margin-inline-end: 10px;
+        }
+
+       
+
+        mat-radio-group {
+                display: block;
+    margin-top: 10px;
+}
+        
+.error-message{
+        color: red;
+        font-size: 14px;
+}
+}

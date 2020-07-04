@@ -1,0 +1,55 @@
+<div class="payment-container">
+    <div class="container">
+        <button mat-raised-button class="reset-button" (click)="reset()"> Reset &#10006;</button>
+
+        <mat-card>
+            <mat-card-title>
+                Shipping Methods
+            </mat-card-title>
+            <mat-card-content>
+                <mat-radio-group [(ngModel)]="shippingMethod">
+                    <mat-radio-button class="example-margin" value="1"> <span>FREE Shipping: </span> get it by Thu, Jul 9 -
+                        Sat, Jul 11 </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="2"><span> $5.99 Standard Shipping: </span> get it by
+                        Wed, Jul 8 </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="3"><span> $8.99 Two-Day Shipping: </span> get it by Mon,
+                        Jul 6 </mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+        </mat-card>
+    
+        <mat-checkbox class="example-margin" [(ngModel)]="isGift" (change)="resetValue()">Item is a gift
+        </mat-checkbox>
+    
+        <mat-card *ngIf='isGift'>
+            <mat-card-title>
+                Shipping Methods
+            </mat-card-title>
+            <mat-card-content>
+                <mat-checkbox class="example-margin" [(ngModel)]="giftReceipt">Include gift receipt
+    
+                </mat-checkbox>
+                <mat-form-field class="full-width">
+                    <mat-label>Recipient Name</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Custom Message</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+                <mat-checkbox class="example-margin" [(ngModel)]="addGify">Add gift wrap
+    
+                </mat-checkbox>
+            </mat-card-content>
+        </mat-card>
+    
+        <div class="buttons-container">
+
+            <button mat-raised-button class="pervious-button" (click)="changeCurrentTab(0)"> Previous</button>
+            <button mat-raised-button class="next-button" (click)="changeCurrentTab(2)"> Next</button>
+        
+        </div>
+    
+    </div>
+   
+</div>
