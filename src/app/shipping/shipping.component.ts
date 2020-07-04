@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output ,EventEmitter  } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,8 +8,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ShippingComponent implements OnInit {
   shippingForm: FormGroup;
-
-  constructor() { }
+   @Output() changeTab = new EventEmitter<number>();
+     constructor() { }
 
   ngOnInit() {
     this.shippingForm = new FormGroup ({
@@ -23,5 +23,9 @@ export class ShippingComponent implements OnInit {
 
   reset(){
     this.shippingForm.reset()
+  }
+
+  changeCurrentTab(index){
+    this.changeTab.emit(index)
   }
 }
